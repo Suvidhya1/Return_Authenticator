@@ -1,0 +1,105 @@
+:root {
+  --bg: #0f1420;
+  --card: #1a2130;
+  --border: #2a3346;
+  --text: #e6ebf5;
+  --muted: #8a93a6;
+  --accent: #4f8cff;
+  --good: #2ecc71;
+  --warn: #f1c40f;
+  --bad: #e74c3c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.page { max-width: 980px; margin: 0 auto; padding: 32px 20px; }
+
+header h1 { margin: 0; font-size: 28px; }
+header .sub { margin: 4px 0 24px; color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.card h2 { margin-top: 0; font-size: 18px; }
+
+label {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+input, select {
+  width: 100%;
+  margin-top: 5px;
+  padding: 9px 10px;
+  background: #0f1420;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+}
+label.checkbox input { width: auto; margin-top: 0; }
+
+button {
+  width: 100%;
+  padding: 11px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.6; cursor: default; }
+
+.muted { color: var(--muted); }
+.error { color: var(--bad); }
+
+.action {
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.action.good { background: rgba(46, 204, 113, 0.15); color: var(--good); }
+.action.warn { background: rgba(241, 196, 15, 0.15); color: var(--warn); }
+.action.bad  { background: rgba(231, 76, 60, 0.15);  color: var(--bad); }
+
+.label-line { font-size: 15px; }
+
+.score { display: flex; align-items: center; gap: 10px; font-size: 13px; margin: 14px 0; }
+.bar { flex: 1; height: 10px; background: #0f1420; border-radius: 6px; overflow: hidden; }
+.fill { height: 100%; background: linear-gradient(90deg, var(--good), var(--warn), var(--bad)); }
+
+.probs { list-style: none; padding: 0; margin: 0; }
+.probs li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
